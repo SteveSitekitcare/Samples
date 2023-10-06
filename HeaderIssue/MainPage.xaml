@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls:Header xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:HeaderIssue"
+             xmlns:model="clr-namespace:HeaderIssue"
+             xmlns:viewmodel="clr-namespace:HeaderIssue"
+             
+             ControlTemplate="{StaticResource HeaderTemplate}"
+             x:Class="HeaderIssue.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="even">
+                <VerticalStackLayout>
+                    <Label Text="{Binding Name}"></Label>
+                    <Label Text="EVEN"></Label>                    
+                </VerticalStackLayout>
+            </DataTemplate>
+            <DataTemplate x:Key="uneven">
+                <VerticalStackLayout>
+                    <Label Text="{Binding Name}"></Label>
+                    <Label Text="UNEVEN"></Label>
+                </VerticalStackLayout>
+            </DataTemplate>
+
+            <model:TemplateSelector x:Key="templateSelector"
+                                      EvenTemplate="{StaticResource even}"
+                                      UnevenTemplate="{StaticResource uneven}"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <CollectionView ItemTemplate="{StaticResource templateSelector}" ItemsSource="{Binding MyModel}">
+                
+            </CollectionView>
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Click me"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</controls:Header>
