@@ -25,7 +25,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Border x:Name="HeaderContainer" Grid.Row="0" StrokeThickness="5" Stroke="Blue" BackgroundColor="Blue" StrokeShape="RoundRectangle,15, 15, 15, 15"
-                        Margin="-2, -2, -2, 0">
+                        Margin="-2">
                         <Label TextColor="white" Text="Quick survey" x:Name="TitleLabel" Grid.Column="0" Padding="10,5,10,0" FontSize="Medium" 
                             FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" />
                     </Border>
